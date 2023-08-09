@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reduce It</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        #strings {
+            width: 250px;
+            height: 30px;
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        #analyzeBtn {
+            padding: 5px 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="stringForm">
+        <input type="text" id="strings" placeholder="Enter comma-separated strings..." />
+
+        <button type="submit" id="analyzeBtn">Analyze</button>
+    </form>
+    <p id="result"></p>
+    <script>
+        // javascript code goes here
+
+        let inputVal = document.getElementById("strings")
+        let result = document.getElementById("result")
+        let btn = document.getElementById("analyzeBtn")
+
+
+        btn.addEventListener("click", (e) => {
+            let inputVal = document.getElementById("strings").value
+            e.preventDefault();
+
+            let comaseprated = inputVal.split(",")
+            let big = comaseprated[0]
+            
+            for(let i = 0; i < comaseprated.length; i++){
+                if(big.length < comaseprated[i].length){
+                    big = comaseprated[i]
+                }
+            }
+ 
+                  
+            result.innerHTML = big
+        })
+    </script>
+</body>
+
+</html>
